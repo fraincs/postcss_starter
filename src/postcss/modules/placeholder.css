@@ -1,0 +1,19 @@
+/*******************************************************************************
+GENERAL TYPO SETTINGS
+*******************************************************************************/
+
+.title {
+
+    &--primary {
+        font-family: $fontFamilyHeading;
+        font-weight: 400;
+        font-size: 28px; 
+    }
+
+    &--secondary {
+        font-family: $fontFamilySerif;
+        font-weight: 700;
+        font-size: 34px; 
+    }
+
+}

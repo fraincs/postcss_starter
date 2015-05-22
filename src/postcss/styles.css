@@ -1,0 +1,48 @@
+/*
+ * STYLUS SMACSS boilerplate v1.0
+ * Structure Inspired by Jonathan Snook : http://smacss.com
+ * Author: @maxime beaudoin
+ * Date: May 11 2014
+ *
+ * Doc : https://github.com/justinmwatts/SMACSS // http://smacss.com
+ */
+
+
+
+/* VENDORS */
+
+
+
+/* BASE */
+@import 'base/normalize';
+@import 'base/base';
+
+
+
+/* LAYOUT */
+
+/* Lost Settings (Layout related) */
+@lost gutter 60px;
+@lost flexbox no-flex;
+@lost cycle auto;
+
+@import 'layout/main';
+
+
+
+/* MODULE */
+@import 'modules/placeholder';
+
+
+/* PAGE */
+
+
+/* STATE */
+
+
+
+/* THEME */
+
+
+
+/* SHAME FILE */

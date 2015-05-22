@@ -14,8 +14,8 @@ var gulp = require('gulp'),
 
     /* PERFORMANCE */
     psi = require('psi'),
-    site = 'http://mss.dev/',
-    siteStage = 'frontend.stage.hff.io',
+    site = 'http://postcss.dev/',
+    siteStage = '',
     key = '', // pagespeed key if used a lot better
 
 
@@ -46,16 +46,14 @@ var gulp = require('gulp'),
 
 
     // variables settings (colors, fonts, etc)
-    vars = require('./src/postcss/config/sitesettings'),
-    fonts = require('./src/postcss/config/fonts'),
+    vars = require('./src/postcss/configs/sitesettings'),
     opts = {
-      basePath: './src/postcss/config/',
+      basePath: './src/postcss/configs/',
       maps: [ 'colors.yml' ]
     },
 
     postcssEasings = require('postcss-easings'),
     bemLinter = require('postcss-bem-linter'),
-    logWarnings = require('postcss-log-warnings'),
 
     postcssPalette = require('postcss-color-palette'),
     // a better palette mrmrs(http://clrs.cc/) is used by default, you can use FlatUI or Material

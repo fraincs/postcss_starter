@@ -1,0 +1,19 @@
+/* FAILS */
+.lost-container {
+    lost-utility: clearfix;
+    div {
+        lost-column: 1/4;
+        @media all and (min-width: 700px) {
+            background: red;
+            lost-column: 1/6;
+        }
+    }
+}
+
+/* WORKS */
+@media all and (min-width: 700px) {
+    .lost-container div {
+        background: red;
+        lost-column: 1/6;
+    }
+}
