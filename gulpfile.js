@@ -37,30 +37,21 @@ var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     zIndex = require('postcss-zindex'),
     postcssFocus = require('postcss-focus'),
+    postcssCalc = require('postcss-calc'),
     postcssSize = require('postcss-size'),
     postcssBrandColors = require('postcss-brand-colors'),
 
     postcssSimpleVars = require('postcss-simple-vars'),
     map = require('postcss-map'),
     mediaMinmax = require('postcss-media-minmax'),
-
-
-    // variables settings (colors, fonts, etc)
-    vars = require('./src/postcss/configs/sitesettings'),
-    opts = {
-      basePath: './src/postcss/configs/',
-      maps: [ 'colors.yml' ]
-    },
-
     postcssEasings = require('postcss-easings'),
     bemLinter = require('postcss-bem-linter'),
 
     postcssPalette = require('postcss-color-palette'),
     // a better palette mrmrs(http://clrs.cc/) is used by default, you can use FlatUI or Material
 
+
     cmq = require('gulp-combine-media-queries'),
-
-
 
     /* JS DEPENDENCIES */
     jshint = require('gulp-jshint'),
@@ -124,7 +115,7 @@ var target = {
 
 
 /*******************************************************************************
-AUTOPREFIXER CONFIG
+POSTCSS CONFIG
 *******************************************************************************/
 
 var AUTOPREFIXER_BROWSERS = [
@@ -137,12 +128,31 @@ var PALETTECOLOR = [
 ];
 
 
+// variables settings (colors, fonts, etc)
+var vars = require('./src/postcss/configs/sitesettings'),
+    opts = {
+        basePath: './src/postcss/configs/',
+        maps: [ 'colors.yml' ]
+    };
 
 
 
 /*******************************************************************************
 CSS TASKS
 *******************************************************************************/
+
+// custom tasks
+
+var ratio = function (css, opts) {
+    css.eachDecl(function(decl) {
+        if (decl.prop === 'ratio') {
+            decl.parent.insertAfter(decl, {
+                prop: 'content',
+                value: '""'
+            });
+        }
+    });
+};
 
 gulp.task('styles', function() {
         var processors = [
@@ -152,6 +162,8 @@ gulp.task('styles', function() {
                 }),
               map(opts),
               lost(),
+              postcssCalc(),
+              ratio,
               postcssFocus(),
               postcssSize(),
               mediaMinmax(),
@@ -325,8 +337,7 @@ gulp.task('default', ['styles','scripts','images'], function() {
 gulp.task('browser-sync', function() {
     browserSync({
         proxy: site ,
-        tunnel: false, // mettre a true si on veut un url accessible de l'extérieur
-        browser: ["google chrome"]
+        tunnel: false // mettre a true si on veut un url accessible de l'extérieur
     });
 });
 

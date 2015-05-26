@@ -468,12 +468,14 @@ img {
 
 /* Lost Settings (Layout related) */
 
+/* FAILS */
+
 .lost-container {
 	*zoom: 1;
 }
 
 .lost-container div {
-	width: calc(99.99% * 1/4 - (60px - 60px * 1/4));
+	width: calc(99.99% * 1/4 - 45px);
 }
 
 .lost-container div:nth-child(n) {
@@ -499,34 +501,26 @@ img {
 	display: table;
 }
 
-.lost-container:before div {
-}
-
 .lost-container:after {
 	content: '';
 	display: table;
 	clear: both;
 }
 
-.lost-container:after div {
-}
+/* WORKS */
 
 /* MODULE */
 
 /*******************************************************************************
-GENERAL TYPO SETTINGS
+PLACEHOLDER MODULE BEM Style
 *******************************************************************************/
 
-.title--primary {
-	font-family: "azo-sans-web", "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 400;
-	font-size: 28px;
-}
-
-.title--secondary {
-	font-family: "bookmania", Cambria, Georgia, Times, "Times New Roman";
-	font-weight: 700;
-	font-size: 34px;
+.card {
+	width: 400px;
+	ratio: 2px;
+	content: "";
+	background: #39CCCC;
+	height: 52px;
 }
 
 /* PAGE */
@@ -541,7 +535,30 @@ GENERAL TYPO SETTINGS
 
 .lost-container div {
 	background: #FF4136;
-	width: calc(99.99% * 1/6 - (60px - 60px * 1/6));
+	width: calc(99.99% * 1/6 - 50px);
+}
+
+.lost-container div {
+	float: left;
+	margin-right: 60px;
+	clear: none;
+}
+
+.lost-container div {
+	margin-right: 0;
+}
+
+.lost-container div {
+	margin-right: 0;
+}
+
+.lost-container div {
+	clear: left;
+}
+
+.lost-container div {
+	background: #FF4136;
+	width: calc(99.99% * 1/6 - 50px);
 }
 
 .lost-container div:nth-child(n) {

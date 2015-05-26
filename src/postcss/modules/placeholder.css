@@ -1,19 +1,11 @@
 /*******************************************************************************
-GENERAL TYPO SETTINGS
+PLACEHOLDER MODULE BEM Style
 *******************************************************************************/
+$width : 400px;
 
-.title {
-
-    &--primary {
-        font-family: $fontFamilyHeading;
-        font-weight: 400;
-        font-size: 28px; 
-    }
-
-    &--secondary {
-        font-family: $fontFamilySerif;
-        font-weight: 700;
-        font-size: 34px; 
-    }
-
+.card {
+    width: $width;
+    ratio: 2px;
+    background: teal;
+    height: calc(12px + 40px);
 }
