@@ -6,6 +6,7 @@ DEPENDENCIES
 
 var gulp = require('gulp'),
     notify = require('gulp-notify'),
+    gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     browserSync = require('browser-sync'),
     reload  = browserSync.reload,
@@ -176,7 +177,10 @@ gulp.task('styles', function() {
         ];
 
     return gulp.src(target.main_postcss_src)
-        .pipe(plumber())
+        .pipe(plumber(function(error){
+           gutil.log(gutil.colors.red(error.message));
+            this.emit('end');
+            }))
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(cmq({
@@ -198,7 +202,10 @@ JS TASK
 
 gulp.task('scripts', function() {
     return gulp.src(target.js_src)
-        .pipe(plumber())
+        .pipe(plumber(function(error){
+           gutil.log(gutil.colors.red(error.message));
+            this.emit('end');
+            }))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(concat('scripts.min.js'))
@@ -211,7 +218,10 @@ gulp.task('scripts', function() {
 // redundancy here maybe change this thing
 gulp.task('scriptsprod', function() {
     return gulp.src(target.js_src)
-        .pipe(plumber())
+        .pipe(plumber(function(error){
+           gutil.log(gutil.colors.red(error.message));
+            this.emit('end');
+            }))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(concat('scripts.min.js'))
@@ -231,7 +241,10 @@ IMAGES TASK
 
 gulp.task('images', function() {
     return gulp.src(target.img_src)
-        .pipe(plumber())
+        .pipe(plumber(function(error){
+           gutil.log(gutil.colors.red(error.message));
+            this.emit('end');
+            }))
         .pipe(imageOptim.optimize())
         .pipe(gulp.dest(target.img_dest));
 });

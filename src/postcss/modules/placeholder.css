@@ -5,7 +5,8 @@ $width : 400px;
 
 .card {
     width: $width;
-    ratio: 2px;
+    lost-column: 1/3;
+    ratio: 16/9;
     background: teal;
     height: calc(12px + 40px);
 }
