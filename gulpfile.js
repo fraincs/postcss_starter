@@ -255,7 +255,7 @@ gulp.task('images', function() {
 
 
 /*******************************************************************************
-SVGSTORE TASK
+SVG TASKS
 *******************************************************************************/
 
 gulp.task('svgstore', function() {
@@ -266,7 +266,13 @@ gulp.task('svgstore', function() {
         .pipe(cheerio(function ($) {
             $('svg').attr('style',  'display:none');
         }))
-        .pipe(gulp.dest(target.svg_dest));
+        .pipe(gulp.dest(target.svgsprite_dest));
+});
+
+gulp.task('svgmin', function() {
+    return gulp.src(target.svg_src)
+    .pipe(svgmin())
+    .pipe(gulp.dest(target.svg_dest));
 });
 
 
