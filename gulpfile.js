@@ -360,7 +360,7 @@ gulp.task('prod', ['styles','scriptsprod','images'], function() {
 
 gulp.task('browser-sync', function() {
     browserSync({
-        proxy: site ,
+        proxy: site,
         tunnel: false // mettre a true si on veut un url accessible de l'extérieur
     });
 });
