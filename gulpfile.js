@@ -107,7 +107,8 @@ var target = {
     img_dest : root_paths.assets + 'images',                     // where to put minified img
 
     svg_src : root_paths.src + 'images/svg/*.svg',
-    svg_dest : root_paths.assets + 'images/svg/svg-sprites/'
+    svg_dest : root_paths.assets + 'images/svg/svg-sprites/',
+    svgsprite_dest : root_paths.assets + 'images/svg/svg-sprites/'
 
 };
 
