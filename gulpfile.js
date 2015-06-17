@@ -145,16 +145,16 @@ CSS TASKS
 
 // custom tasks
 
-var ratio = function (css, opts) {
-    css.eachDecl(function(decl) {
-        if (decl.prop === 'ratio') {
-            decl.parent.insertAfter(decl, {
-                prop: 'content',
-                value: '""'
-            });
-        }
-    });
-};
+// var ratio = function (css, opts) {
+//     css.eachDecl(function(decl) {
+//         if (decl.prop === 'ratio') {
+//             decl.parent.insertAfter(decl, {
+//                 prop: 'content',
+//                 value: '""'
+//             });
+//         }
+//     });
+// };
 
 gulp.task('styles', function() {
         var processors = [
@@ -350,6 +350,10 @@ DEFAULT TASK
 *******************************************************************************/
 
 gulp.task('default', ['styles','scripts','images'], function() {
+
+});
+
+gulp.task('prod', ['styles','scriptsprod','images'], function() {
 
 });
 
