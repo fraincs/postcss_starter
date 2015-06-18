@@ -328,7 +328,7 @@ COOL TASKS
 gulp.task('shoot', function () {
 
     var pageres = new Pageres({delay: 2})
-        .src(site, ['iphone 5s', 'Nexus 5'], {filename:'<%= date %> - <%= size %>'})
+        .src(site, ['w3counter'], {filename:' <%= url %> - <%= date %> -  <%= time %> - <%= size %>'})
         .dest('./pageres');
 
     pageres.run(function (err) {
@@ -336,7 +336,7 @@ gulp.task('shoot', function () {
             throw err;
         }
 
-        console.log('Shooting terminé!');
+        console.log('Shooting of ' + site + ' terminé!');
     });
 });
 
