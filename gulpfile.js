@@ -165,7 +165,6 @@ gulp.task('styles', function() {
               map(opts),
               lost(),
               postcssCalc(),
-              ratio,
               postcssFocus(),
               postcssSize(),
               mediaMinmax(),
@@ -349,11 +348,11 @@ gulp.task('shoot', function () {
 DEFAULT TASK
 *******************************************************************************/
 
-gulp.task('default', ['styles','scripts','images'], function() {
+gulp.task('default', ['styles','scripts','images','svgstore', 'svgmin'], function() {
 
 });
 
-gulp.task('prod', ['styles','scriptsprod','images'], function() {
+gulp.task('prod', ['styles','scriptsprod','svgstore', 'svgmin', 'shoot'], function() {
 
 });
 
@@ -375,8 +374,9 @@ WATCH TASK
 
 gulp.task('watch', ['browser-sync'], function() {
 
-    gulp.watch(target.postcss_src, ['styles']);       // Watch .styl files
-    gulp.watch(target.img_src, ['images']);         // Watch images files
-    gulp.watch(target.js_src, ['scripts']);        // Watch .js files
+    gulp.watch(target.postcss_src, ['styles']);               // Watch .styl files
+    gulp.watch(target.img_src, ['images']);                  // Watch images files
+    gulp.watch(target.svg_src, ['svgstore', 'svgmin']);     // Watch svg files
+    gulp.watch(target.js_src, ['scripts']);                // Watch .js files
 
 });
