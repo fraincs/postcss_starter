@@ -134,7 +134,7 @@ var PALETTECOLOR = [
 var vars = require('./src/postcss/configs/sitesettings'),
     opts = {
         basePath: './src/postcss/configs/',
-        maps: [ 'colors.yml' ]
+        maps: [ 'colors.yml','xyz.yml' ]
     };
 
 

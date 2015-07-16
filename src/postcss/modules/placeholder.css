@@ -9,4 +9,5 @@ $width : 400px;
     ratio: 16/9;
     background: teal;
     height: calc(12px + 40px);
+    color: map(xyz,base,light);
 }
